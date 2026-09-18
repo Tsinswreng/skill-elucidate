@@ -9,20 +9,20 @@ name: tsinswreng-elucidate
 description: 如何把東西解釋得易懂
 
 \-\-\-
-
+#let Qb(Cont) = quote(block:true)[#Cont]
 #H[使用規範的現代漢語書面語][
 	#H[句子結構要完整][
 		不能缺少該有的成分。
 
 		#H[不要缺主語][
 			錯誤示例:
-			#quote(block: true)[
+			#Qb[
 				❌點擊保存按鈕後,
 				會把修改保存到數據庫。
 			]
 			
 			正確示例:
-				#quote(block: true)[
+				#Qb[
 					✅用戶點擊保存按鈕後,
 					系統會把修改保存到數據庫。
 			]
@@ -30,12 +30,12 @@ description: 如何把東西解釋得易懂
 
 		#H[不要缺謂語][
 			錯誤示例:
-			#quote(block: true)[
+			#Qb[
 				此項目名叫MyProj,
 				公司項目。
 			]
 			正確示例:
-			#quote(block: true)[
+			#Qb[
 				此項目名叫MyProj,
 				*是*公司項目。
 			]
@@ -43,6 +43,11 @@ description: 如何把東西解釋得易懂
 		]
 
 		#H[禁止使用破折號][
+			//TODO 缺例
+		]
+		
+		#H[禁止濫用引號或括號作解釋說明][
+			該用文字寫清楚就寫清楚。
 			//TODO 缺例
 		]
 
@@ -278,7 +283,7 @@ description: 如何把東西解釋得易懂
 		正確示例:
 		- #[
 				快照的內容大意是：
-				#quote(block: true)[
+				#Qb[
 					- 項目名:「juice-shop 練手」;
 					- 一條資產 `http://127.0.0.1:3001` 還沒測;
 					- 零個攻擊手在運行;
@@ -289,6 +294,14 @@ description: 如何把東西解釋得易懂
 				系統內部存了什麼數據，
 				模型一無所知。
 			]
+		注: 如果你使用typst,
+		在typst中,
+		引用格式語法爲:
+		```typst
+		#quote(block:true)[
+			引文內容
+		]
+		```
 	]
 ]
 
@@ -296,7 +309,7 @@ description: 如何把東西解釋得易懂
 	#let Note(cont) = {cont}
 	+ #[
 			- #[錯誤示例
-					#quote(block: true)[
+					#Qb[
 						此工作區是 MyProj——面向某某場景的多 Agent 協作平臺,
 						Bun monorepo,
 						基於 pi-coding-agent SDK。
@@ -309,7 +322,7 @@ description: 如何把東西解釋得易懂
 					]
 				]
 			- #[正確示例
-					#quote(block: true)[
+					#Qb[
 						
 					]
 				]
