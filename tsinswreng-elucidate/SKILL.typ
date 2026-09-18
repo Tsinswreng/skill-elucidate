@@ -1,7 +1,7 @@
 #import "@preview/tsinswreng-auto-heading:0.1.0": auto-heading
 #let H = auto-heading;
-//#import "_Common.typ": *
-//#show: _Show
+#import "_Common.typ": *
+#show: _Show
 \-\-\-
 
 name: tsinswreng-elucidate
@@ -12,15 +12,40 @@ description: 如何把東西解釋得易懂
 
 #H[使用規範的現代漢語書面語][
 	#H[句子結構要完整][
-		不能缺少該有的成分,
-		尤其注意不要缺主語。
+		不能缺少該有的成分。
 
-		錯誤示例:
-		- #[❌點擊保存按鈕後,
-				會把修改保存到數據庫。]
-		正確示例:
-		- #[✅用戶點擊保存按鈕後,
-				系統會把修改保存到數據庫。]
+		#H[不要缺主語][
+			錯誤示例:
+			#quote(block: true)[
+				❌點擊保存按鈕後,
+				會把修改保存到數據庫。
+			]
+			
+			正確示例:
+				#quote(block: true)[
+					✅用戶點擊保存按鈕後,
+					系統會把修改保存到數據庫。
+			]
+		]
+
+		#H[不要缺謂語][
+			錯誤示例:
+			#quote(block: true)[
+				此項目名叫MyProj,
+				公司項目。
+			]
+			正確示例:
+			#quote(block: true)[
+				此項目名叫MyProj,
+				*是*公司項目。
+			]
+
+		]
+
+		#H[禁止使用破折號][
+			//TODO 缺例
+		]
+
 	]
 
 	#H[規範用詞][
@@ -144,7 +169,7 @@ description: 如何把東西解釋得易懂
 				再查數據庫,
 				數據庫中也沒有則返回404。]
 	]
-	
+
 	#H[明確中心主旨/主題/寫作目的][
 		文章邏輯要連貫,
 		銜接自然,
@@ -190,7 +215,7 @@ description: 如何把東西解釋得易懂
 	文章除了內容上要易懂之外,
 	在排版上也要下功夫,
 	讓人看得舒服。
-	
+
 	#H[注意分行分段][
 		該分行分段就分,
 		避免一路小句寫到尾。
@@ -267,16 +292,34 @@ description: 如何把東西解釋得易懂
 	]
 ]
 
-
+#H[綜合示例][
+	#let Note(cont) = {cont}
+	+ #[
+			- #[錯誤示例
+					#quote(block: true)[
+						此工作區是 MyProj——面向某某場景的多 Agent 協作平臺,
+						Bun monorepo,
+						基於 pi-coding-agent SDK。
+						某某比賽一等獎項目（1/613）。
+						*公司項目，雙倉庫*:
+						GitHub 開源側 `company-org/MyProj`（公司 org，用戶是公司員工、接手負責開發）;
+						公司內部側 `FireMyProj`（gitlab 託管、非 GitHub，歷史與開源側完全獨立，最新改動都在此）。
+						*主開發場（2026-09-18 起）*：
+						工作區內 FireMyProj 的 `dev` 分支
+					]
+				]
+			- #[正確示例
+					#quote(block: true)[
+						
+					]
+				]
+		]
+]
 
 #H[自查][
 	問自己兩個問題:
 	- 是否滿足了上述要求:
 	- 站在人類讀者的角度 是否易懂? 是否有問題?
 ]
-
-
-
-
 
 
