@@ -1,7 +1,7 @@
 //.Tsinswreng\Skills\tsinswreng-elucidate\tsinswreng-elucidate\SKILL.typ
 //_Mvn\_Common.typ
-#import "../../../../_Mvn/_Common.typ": *
-#show: _Show
+// #import "../../../../_Mvn/_Common.typ": *
+// #show: _Show
 
 #import "Body.typ": *
 \-\-\-
@@ -12,4 +12,5 @@ description: 如何把東西寫得易懂
 
 \-\-\-
 
-#Body(P:P)
+//#Body(P:P)
+#Body()
