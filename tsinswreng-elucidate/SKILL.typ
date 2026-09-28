@@ -8,7 +8,7 @@
 
 name: tsinswreng-elucidate
 
-description: 如何把東西寫得易懂
+description: 如何輸出規範易懂的人話
 
 \-\-\-
 
