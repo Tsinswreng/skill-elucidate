@@ -1,7 +1,7 @@
 <!-- 本文件由 GenReadme.csx 自動生成，請勿手改；內容源是 skill-elucidate 文章 index.typ。 -->
 
-- [繁體中文](README-zh-Hant.md)
-- [简体中文](README-zh-Hans.md)
+- [中文-漢字](README-zh-Hant.md)
+- [中文-汉字](README-zh-Hans.md)
 
 # skill:讓AI輸出規範易懂的人話
 
