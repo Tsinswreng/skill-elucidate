@@ -345,17 +345,22 @@
 
 ## 1 \| 安装
 
-找到github仓库中的`SKILL.md`, 手动放到项目的skill目录下(如`.agent/skills/tsinswreng-elucidate/`) 该skill的默认名称是`tsinswreng-elucidate`, 其中`tsinswreng-`是本人名称, 充当命名空间, 无实际意义。
+找到github仓库中的`SKILL.md`,
+
+- 简中: <https://github.com/Tsinswreng/skill-elucidate/blob/master/Langs/zh-Hans/tsinswreng-elucidate/SKILL.md>
+- 繁中: <https://github.com/Tsinswreng/skill-elucidate/blob/master/Langs/zh-Hant/tsinswreng-elucidate/SKILL.md>
+
+手动放到项目的skill目录下(如`.agent/skills/tsinswreng-elucidate/`)。 该skill的默认名称是`tsinswreng-elucidate`, 其中`tsinswreng-`是本人名称, 充当命名空间, 无实际意义。
 
 您可自行按需更改该skill任何部分的内容, 不限于名称、描述、正文等, 反正此skill就是一段自然语言文本。
 
 ## 2 \| 使用例
 
-这里展示一个\[使用该skill来润色文本\]的实例。 使用的模型是glm-5.2-highspeed。 以下是未使用此skill时模型输出的一段文字, 完全由模型自己发挥:
+这里展示一个\[使用该skill来润色文本\]的实例。 使用的模型是glm-5.2-highspeed。 以下是未使用此skill时模型输出的一段文字, 来自在某项目中AI对遇到的一个bug的总结, 内容完全由模型自己发挥:
 
 > **OpenCode 版本必须精确 pin(当前 1.18.23)并端到端验证**: Docker Hub 的 `openeuler/opencode` 标签和 npm 的 `opencode-ai` 是两套版本; 历史上“版本不低于下限”的策略造成开发/生产漂移, token 统计全坏。 禁止用可变 `latest`。
 
-随后人工发送以下提示词给大模型, 要求大模型按要求改写润色:
+可见无约束时, AI直接输出的内容非常符合AI的文风, 且看起来不是这么清晰易懂。 随后要求大模型按要求改写润色, 人工发送以下提示词给大模型:
 
 > 看elucidate skill, 改写这段话。
 
@@ -367,10 +372,12 @@
 > 2.  历史上采用过「版本不低于下限」的策略, 也就是只要求版本号达到某个下限, 不锁定具体版本。 这个策略造成开发环境与生产环境所用的版本发生漂移, 最终 token 统计功能完全损坏。
 > 3.  `latest` 是可变标签, `latest` 指向的版本会随时间变化, 因此禁止使用 `latest`。
 
+可见, 该skill还是有一定效果的。
+
 ## 3 \| 几个注意点
 
-1.  建议先让AI直接输出, 再让AI按照skill修改。 这样做的话, 「初始输出」与「按skill修改润色」被人为分成了两个任务 效果好于一开始就挂着skill一次性输出。
+1.  建议先让AI直接输出, 再让AI按照skill修改。 相较于直接让AI按照skill规则一次性输出完, 这样做的话, 「初始输出」与「按skill修改润色」被人为分成了两个任务, 效果往往会更好。
 
-    原因在于模型的注意力有限。 生成时, 模型的注意力要分配到上下文的全部内容上, 上下文里的规约越多, 每条规约分到的注意力越少, 模型越容易整条漏掉靠后的规约。 所以分两遍做: 第一遍让模型写出初稿, 第二遍让模型拿规约逐条对照初稿修改。 这样第二遍只有对照与修改一件事, 每条规约才更容易被遵守执行。
+    原因在于模型的注意力有限。 生成时, 模型的注意力要分配到上下文的全部内容上, 上下文里的规约越多, 每条规约分到的注意力越少, 模型越容易漏掉上下文中间的内容。 所以分两遍做: 第一遍让模型写出初稿, 第二遍让模型拿规约逐条对照初稿修改。 这样第二遍只有对照与修改一件事, 每条规约才更容易被遵守执行。
 
 2.  此skill不是银弹, 产出的文本的品质模型能力有关。 一次性修改未必能使您完全满意, 可适当放低期待, 让AI按skill多轮对照再修改, 不必指望AI能一次性改好。 通常每轮润色修改后的产出品质都会有提升。
